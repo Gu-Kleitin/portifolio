@@ -1,0 +1,242 @@
+.project {
+  border: 1px solid var(--line);
+  border-top: 3px solid var(--project-accent);
+  border-radius: var(--radius);
+  background: var(--bg-raised);
+  padding: 24px;
+  height: 100%;
+  margin-bottom: 0;
+}
+
+.projects-carousel {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  padding: 0 24px;
+}
+
+.projects-stage {
+  position: relative;
+  overflow: hidden;
+  padding: 4px 0 10px;
+}
+
+.projects-track {
+  display: flex;
+  align-items: stretch;
+  gap: 24px;
+  width: max-content;
+  will-change: transform;
+}
+
+.project-slide {
+  width: min(62vw, 720px);
+  flex: 0 0 min(62vw, 720px);
+  opacity: 0.45;
+  transform: scale(0.94);
+}
+
+.projects-track.has-transition {
+  transition: transform 220ms ease, opacity 220ms ease;
+}
+
+.projects-track.has-transition .project-slide {
+  transition: transform 220ms ease, opacity 220ms ease;
+}
+
+.project-slide.is-active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.project-media {
+  display: grid;
+  place-items: center;
+  aspect-ratio: 16 / 7;
+  margin: -24px -24px 22px;
+  overflow: hidden;
+  border-bottom: 1px solid var(--line);
+  background: color-mix(in srgb, var(--project-accent) 18%, #101218);
+  color: var(--text-dim);
+  font-family: var(--font-mono);
+  font-size: 12px;
+}
+
+.project-media img,
+.project-media video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.project-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 8px;
+}
+
+.project-head h3 {
+  margin: 0;
+  font-size: 17.5px;
+  font-weight: 700;
+}
+
+.project-head time {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--text-dim);
+}
+
+.project p.desc {
+  color: var(--text-dim);
+  margin: 0 0 14px 0;
+  font-size: 14.5px;
+}
+
+.project .tags {
+  margin-bottom: 14px;
+}
+
+.project-links {
+  display: flex;
+  gap: 16px;
+}
+
+.project-links a {
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  text-decoration: none;
+  color: var(--accent);
+  border-bottom: 1px solid transparent;
+}
+
+.project-links a:hover {
+  border-color: var(--accent);
+}
+
+.carousel-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  margin-top: 18px;
+}
+
+.carousel-arrow,
+.carousel-controls button {
+  display: grid;
+  place-items: center;
+  min-width: 38px;
+  height: 34px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--bg-raised);
+  color: var(--text);
+  cursor: pointer;
+  font: inherit;
+}
+
+.carousel-arrow {
+  position: absolute;
+  top: 50%;
+  z-index: 2;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--bg-raised);
+}
+
+.carousel-arrow-previous {
+  left: clamp(10px, 3vw, 48px);
+}
+
+.carousel-arrow-next {
+  right: clamp(10px, 3vw, 48px);
+}
+
+.carousel-arrow:hover,
+.carousel-controls button:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+.carousel-dots button {
+  min-width: 8px;
+  width: 8px;
+  height: 8px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: var(--line);
+}
+
+.carousel-dots button.is-active {
+  background: var(--accent);
+  transform: scale(1.25);
+}
+
+.tree-accent {
+  float: right;
+  margin-left: 14px;
+  opacity: 0.9;
+}
+
+@media (max-width: 480px) {
+  .projects-carousel {
+    padding: 0 18px;
+  }
+
+  .projects-track {
+    gap: 0;
+  }
+
+  .project-slide {
+    width: calc(100vw - 36px);
+    flex-basis: calc(100vw - 36px);
+    opacity: 1;
+    transform: none;
+  }
+
+  .carousel-arrow {
+    width: 36px;
+    height: 36px;
+  }
+
+  .project {
+    padding: 18px;
+  }
+
+  .project-media {
+    margin: -18px -18px 18px;
+    aspect-ratio: 16 / 9;
+  }
+
+  .project-head {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .tree-accent {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .project-slide {
+    transition: none;
+  }
+
+  .projects-track.has-transition {
+    transition: none;
+  }
+}

@@ -1,0 +1,36 @@
+.contact-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.contact-card {
+  flex: 1 1 200px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 20px;
+  background: var(--bg-raised);
+  text-decoration: none;
+  transition: border-color 0.15s ease;
+}
+
+.contact-card:hover {
+  border-color: var(--accent);
+}
+
+.contact-card.static {
+  cursor: default;
+}
+
+.contact-card .k {
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  color: var(--text-dim);
+  display: block;
+  margin-bottom: 6px;
+}
+
+.contact-card .v {
+  font-size: 14.5px;
+  word-break: break-word;
+}
